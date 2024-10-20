@@ -181,7 +181,9 @@ function App() {
 
   return (
     // let's  start the game bro
-    <div className="main"
+  <div className="main">
+
+    <div className="head"
      style={{
       backgroundImage: `url(${process.env.PUBLIC_URL}/${bgaddress})`,
       backgroundSize: "cover",
@@ -355,6 +357,7 @@ function App() {
         )}
       </div>
     </div>
+  </div>
   );
 }
 
