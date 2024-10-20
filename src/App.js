@@ -180,185 +180,159 @@ function App() {
   }, []);
 
   return (
-    // let's  start the game bro
-  <main className="main">
-
-    <div className="head"
-     style={{
-      backgroundImage: `url(${process.env.PUBLIC_URL}/${bgaddress})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      height: "100vh"
-
-    }}
-     >
-      <div className="navbar">
-        <div className="left">
-          <h3>WeatherApp</h3>
+    <div className="main">
+  
+      <div className="head"
+       style={{
+        backgroundImage: `url(${process.env.PUBLIC_URL}/${bgaddress})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "100vh"
+      }}
+       >
+        <div className="navbar">
+          <div className="left">
+            <h3>WeatherApp</h3>
+          </div>
+          <div className="middle">
+            {weatherdata && loadend && weekdata ? (
+              <div>
+                {weekdata.location.name}, {weekdata.location.region},{" "}
+                {weekdata.location.country}
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
-        <div className="middle">
-          {weatherdata && loadend && weekdata ? (
-            <div>
-              {weekdata.location.name}, {weekdata.location.region},{" "}
-              {weekdata.location.country}
+  
+        <main className="content"> {/* Main landmark starts here */}
+          <div className="search">
+            <form className="" onSubmit={getdata}>
+              <input
+                value={cityname}
+                onChange={(e) => {
+                  setcityname(e.target.value);
+                }}
+                type="text"
+                placeholder="Enter City Name"
+              />
+              <button type="submit">Search</button>
+            </form>
+          </div>
+  
+          {loadend && weatherdata ? (
+            <div className="data">
+              <div className="current">
+                <div className="today">
+                  <div className="temp">
+                    <img
+                      className=""
+                      src={`http://openweathermap.org/img/w/${weatherdata.weather[0].icon}.png`}
+                      alt="Not found"
+                    />
+                    {weatherdata.main.temp} &deg;C
+                  </div>
+  
+                  <p className="city">{weatherdata.name}</p>
+  
+                  <div className="date">
+                    <h3>
+                      {day}, {formattedDate}
+                    </h3>
+                    <h3>
+                      {date.getHours() >= 12
+                        ? date.getHours() % 12
+                        : date.getHours()}
+                      :
+                      {date.getMinutes() < 10
+                        ? "0" + date.getMinutes()
+                        : date.getMinutes()}{" "}
+                      {ampm}{" "}
+                    </h3>
+                  </div>
+  
+                  <div className="wind">
+                    <div className="speed">
+                      <h4>Wind Speed</h4> {weatherdata.wind.speed}
+                    </div>
+                    <div className="speed">
+                      <h4>Humidity</h4>
+                      {weatherdata.main.humidity}
+                    </div>
+                  </div>
+  
+                  <div className="bar"></div>
+  
+                  <div className="climate">
+                    {weatherdata.weather[0].description}
+                  </div>
+                </div>
+              </div>
+  
+              <div className="week">
+                <div className="day">
+                  <h4 className="date">
+                    {weekdata.forecast.forecastday[0].date}
+                  </h4>
+                  <div placeholder="Scroll left to see more" className="boxes">
+                    {weekdata.forecast.forecastday[0].hour.map((e, i) => {
+                      return (
+                        <div key={i} className="box">
+                          <p className="">{e.time.split(" ")[1]}</p>
+                          <img src={`${e.condition.icon}`} alt="X" />
+                          <h3 className="">{e.temp_c} &deg;C</h3>
+                          <p>{e.condition.text}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="day">
+                  <h4 className="date">
+                    {weekdata.forecast.forecastday[1].date}
+                  </h4>
+                  <div placeholder="Scroll left to see more" className="boxes">
+                    {weekdata.forecast.forecastday[1].hour.map((e, i) => {
+                      return (
+                        <div key={i} className="box">
+                          <p className="">{e.time.split(" ")[1]}</p>
+                          <img src={`${e.condition.icon}`} alt="X" />
+                          <h3 className="">{e.temp_c} &deg;C</h3>
+                          <p>{e.condition.text}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
             </div>
           ) : (
-            ""
+            <div className="load">
+              <h3 className="txt">Data is loading ...</h3>
+              <div className="quote">
+                <h5 className="">Do you know ?</h5>
+                <p className="">
+                  The hottest temperature ever recorded on Earth is 134°F (56.7°C)
+                </p>
+                <button className="brief" onClick={togglePopover}>
+                  Click to read more
+                </button>
+                {isPopoverVisible && (
+                  <div className=" expla popover-content">
+                    The hottest temperature ever recorded on Earth is 134°F
+                    (56.7°C)! This scorching record was set in Death Valley,
+                    California, on July 10, 1913. Despite its harsh environment,
+                    the area supports unique wildlife and plants that have adapted
+                    to these intense conditions.
+                  </div>
+                )}
+              </div>
+            </div>
           )}
-        </div>
-        {/* <div className="right">
-          <button>Sign in</button>
-          <button>Log in</button>
-        </div> */}
-      </div>
-
-      <div className="content">
-        <div className="search">
-          <form className="" onSubmit={getdata}>
-            <input
-              value={cityname}
-              onChange={(e) => {
-                setcityname(e.target.value);
-              }}
-              type="text"
-              placeholder="Enter City Name"
-            />
-            <button type="submit">Search</button>
-          </form>
-        </div>
-
-        {loadend && weatherdata ? (
-          <div className="data">
-            <div className="current">
-              <div className="today">
-                <div className="temp">
-                  <img
-                    className=""
-                    src={`http://openweathermap.org/img/w/${weatherdata.weather[0].icon}.png`}
-                    alt="Not found"
-                  />
-                  {weatherdata.main.temp} &deg;C
-                </div>
-
-                <p className="city">{weatherdata.name}</p>
-
-                <div className="date">
-                  <h3>
-                    {day}, {formattedDate}
-                  </h3>
-                  <h3>
-                    {date.getHours() >= 12
-                      ? date.getHours() % 12
-                      : date.getHours()}
-                    :
-                    {date.getMinutes() < 10
-                      ? "0" + date.getMinutes()
-                      : date.getMinutes()}{" "}
-                    {ampm}{" "}
-                  </h3>
-                </div>
-
-                <div className="wind">
-                  <div className="speed">
-                    <h4>Wind Speed</h4> {weatherdata.wind.speed}
-                  </div>
-                  <div className="speed">
-                    <h4>Humidity</h4>
-                    {weatherdata.main.humidity}
-                  </div>
-                </div>
-
-                <div className="bar"></div>
-
-                <div className="climate">
-                  {/* {" "} */}
-                  {weatherdata.weather[0].description}
-                </div>
-              </div>
-            </div>
-
-            <div className="week">
-              <div className="day">
-                <h4 className="date">
-                  {weekdata.forecast.forecastday[0].date}
-                </h4>
-                <div placeholder="Scroll left to see more" className="boxes">
-                  {weekdata.forecast.forecastday[0].hour.map((e, i) => {
-                    return (
-                      <div key={i} className="box">
-                        <p className="">{e.time.split(" ")[1]}</p>
-                        <img src={`${e.condition.icon}`} alt="X" />
-                        <h3 className="">{e.temp_c} &deg;C</h3>
-                        <p>{e.condition.text}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <div className="day">
-                <h4 className="date">
-                  {weekdata.forecast.forecastday[1].date}
-                </h4>
-                <div placeholder="Scroll left to see more" className="boxes">
-                  {weekdata.forecast.forecastday[1].hour.map((e, i) => {
-                    return (
-                      <div key={i} className="box">
-                        <p className="">{e.time.split(" ")[1]}</p>
-                        <img src={`${e.condition.icon}`} alt="X" />
-                        <h3 className="">{e.temp_c} &deg;C</h3>
-                        <p>{e.condition.text}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-              {/* <div className="1 day">
-    
-                </div>
-                <div className="3 day">
-                 
-                </div>
-                <div className="4 day">
-    
-                </div>
-                <div className="5 day">
-    
-                </div>
-                <div className="6 day">
-    
-                </div> */}
-            </div>
-          </div>
-        ) : (
-          <div className="load">
-            <h3 className="txt">Data is loading ...</h3>
-            <div className="quote">
-              <h5 className="">Do you know ?</h5>
-              <p className="">
-                The hottest temperature ever recorded on Earth is 134°F (56.7°C)
-              </p>
-              <button className="brief" onClick={togglePopover}>
-                Click to read more
-              </button>
-              {isPopoverVisible && (
-                <div className=" expla popover-content">
-                  The hottest temperature ever recorded on Earth is 134°F
-                  (56.7°C)! This scorching record was set in Death Valley,
-                  California, on July 10, 1913. Death Valley, known for its
-                  extreme conditions, is one of the driest and hottest places on
-                  Earth. Despite its harsh environment, the area supports unique
-                  wildlife and plants that have adapted to these intense
-                  conditions.
-                </div>
-              )}
-            </div>
-          </div>
-        )}
+        </main> {/* Main landmark ends here */}
       </div>
     </div>
-  </main>
   );
 }
-
-export default App;
+export default App;  

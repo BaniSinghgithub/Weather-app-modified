@@ -221,7 +221,7 @@ button{
           display: flex;
           border-radius: 20px;
           /* flex-shrink: 0; */
-          height: 80%;
+          height: 85%;
           width: 92%;
           background-color: rgb(207, 171, 128);
           overflow: scroll;
