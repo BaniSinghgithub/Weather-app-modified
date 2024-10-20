@@ -98,7 +98,7 @@ function App() {
   let getweekdata = (lat, lon) => {
     // const url = `https://open-weather13.p.rapidapi.com/city/fivedaysforcast/${lat}/${lon}`;
 
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=db0bcce5930d4ba8a42110714243108&q=${cityname}&days=3&aqi=no&alerts=no`;
+    const url = `https://api.weatherapi.com/v1/forecast.json?key=db0bcce5930d4ba8a42110714243108&q=${cityname}&days=3&aqi=no&alerts=no`;
     const options = {
       method: "GET",
       // headers: {
@@ -228,7 +228,7 @@ function App() {
                   <div className="temp">
                     <img
                       className=""
-                      src={`http://openweathermap.org/img/w/${weatherdata.weather[0].icon}.png`}
+                      src={`https://openweathermap.org/img/w/${weatherdata.weather[0].icon}.png`}
                       alt="Not found"
                     />
                     {weatherdata.main.temp} &deg;C
