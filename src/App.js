@@ -181,7 +181,7 @@ function App() {
 
   return (
     // let's  start the game bro
-  <div className="main">
+  <main className="main">
 
     <div className="head"
      style={{
@@ -357,7 +357,7 @@ function App() {
         )}
       </div>
     </div>
-  </div>
+  </main>
   );
 }
 
