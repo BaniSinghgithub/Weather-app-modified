@@ -19,13 +19,16 @@
   width: 100vw;
   font-size:2.5vw;
   font-weight: 400;
-  /* background-image: url("./background.jpg"); */
+  overflow: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+
 }
 .navbar{
 
   height: 13vh;
   padding: 0 20px;
-  background-color: hsla(220, 37%, 91%,0.9);
+  background-color: hsla(220, 37%, 91%,0.7);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -129,6 +132,8 @@ button{
         background-color: rgba(198, 201, 144,0.7);
         border-radius: 20px;
         overflow: scroll;
+        scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
         
         .temp{
           margin: 0%;
@@ -171,6 +176,8 @@ button{
             width: 40%;
             height: 100%;
             overflow: scroll;
+            scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
 
             h4{
               margin:8px 0;
@@ -188,6 +195,8 @@ button{
     
     .week{
       overflow: scroll;
+      scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
       font-size: large;
       display: flex;
       box-sizing: border-box;
@@ -225,6 +234,8 @@ button{
           width: 92%;
           background-color: rgb(207, 171, 128);
           overflow: scroll;
+          scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
           gap: 20px;
           padding:0 20px;
           padding-right: 40px;
