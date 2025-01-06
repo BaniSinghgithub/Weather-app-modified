@@ -13,38 +13,37 @@
   color: white;
 }
 
-.head{
+.head {
   box-sizing: border-box;
   height: 100%;
   width: 100vw;
-  font-size:2.5vw;
+  font-size: 2.5vw;
   font-weight: 400;
   overflow: scroll;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;
-
 }
-.navbar{
-
+.navbar {
   height: 13vh;
   padding: 0 20px;
-  background-color: hsla(220, 37%, 91%,0.7);
+  background-color: hsla(220, 37%, 91%, 0.8);
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 10px 10px rgb(181, 179, 179);
   text-shadow: 0 0 8px rgba(228, 33, 33, 0.8);
-  
-  .right{
-    display:flex;
+
+  .right {
+    display: flex;
     justify-content: space-between;
     gap: 1.5vw;
-    button{
-      box-shadow: 2px 2px 5px rgb(72, 72, 162),inset 5px 5px 10px rgb(167, 167, 176);
+    button {
+      box-shadow: 2px 2px 5px rgb(72, 72, 162),
+        inset 5px 5px 10px rgb(167, 167, 176);
     }
   }
-  
-  button{
+
+  button {
     height: 5vh;
     width: 8vw;
     font-size: 2vmin;
@@ -52,13 +51,13 @@
   }
 }
 
-button{
+button {
   text-shadow: 3px 5px 8px rgba(161, 190, 93, 0.8);
   cursor: pointer;
 }
 
-.load{
-  *{
+.load {
+  * {
     margin: 2vh;
   }
 
@@ -67,84 +66,96 @@ button{
   background-color: rgb(196, 121, 64);
   text-align: center;
 
-  button{
+  button {
     height: 6vh;
     width: 15vw;
     font-size: 1.4vw;
     background-color: aqua;
     border-radius: 10px;
   }
+  button:hover {
+    background-color: rgb(182, 221, 53);
+    scale: 1.05;
+    box-shadow: 2px 2px 10px orange, -2px 2px 10px orange, 2px -2px 10px orange,
+      -2px -2px 10px orange;
+  }
 }
 
-.expla{
+.expla {
   width: 100%;
-  font-size:4vh;
+  font-size: 4vh;
 }
 
-.content{
+.content {
   padding: 0;
 
   height: 87vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  .search{
+
+  .search {
     margin-top: 4vh;
     margin-bottom: 3vh;
     max-height: 10vh;
     max-width: 100%;
     /* background-color: aliceblue; */
     /* width: 100%; */
-    form > input,button{
-    height: 7vh;
-    font-size: 2.3vw;
-    border-radius: 10px;
+    form > input,
+    button {
+      height: 7vh;
+      font-size: 2.3vw;
+      border-radius: 10px;
 
-    background-color: hsla(60, 46%, 88%,0.7);
-    box-shadow: 5px 5px 10px rgb(222, 222, 164);
-  
+      background-color: hsla(60, 46%, 88%, 0.7);
+      box-shadow: 5px 5px 10px rgb(222, 222, 164);
     }
-    form input{
+    form input {
       margin-right: 3vw;
+    }
+    button:hover {
+      scale: 1.04;
+      background-color: aquamarine;
+      color: crimson;
+      box-shadow: 2px 2px 8px orange, -2px 2px 8px orange, 2px -2px 8px orange,
+        -2px -2px 8px orange;
     }
   }
   /* gap:10vh; */
 
-  .data{
-
+  .data {
     height: 73vh;
     width: 100%;
 
     display: flex;
 
-    .current{
+    .current {
       height: 98%;
       width: 30%;
 
-      .today{
+      .today {
         box-sizing: border-box;
         text-align: center;
         font-size: large;
         margin: 0 5%;
         height: 100%;
         width: 80%;
-        background-color: rgba(198, 201, 144,0.7);
+        background-color: rgba(198, 201, 144, 0.7);
         border-radius: 20px;
         overflow: scroll;
         scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;
-        
-        .temp{
+        -ms-overflow-style: none;
+
+        .temp {
           margin: 0%;
           padding: 0%;
           display: flex;
           align-items: center;
-          font-size:3vw;
-          font-family:monospace;
+          font-size: 3vw;
+          font-family: monospace;
           /* background-color: beige; */
 
-          img{
+          img {
             margin: 0%;
             padding: 0%;
             /* background-color: red; */
@@ -152,11 +163,11 @@ button{
             height: 10%;
           }
         }
-        .city{
+        .city {
           margin: 0;
           font-size: 2vw;
         }
-        .wind{
+        .wind {
           height: 12vh;
           box-sizing: border-box;
           display: flex;
@@ -165,57 +176,54 @@ button{
           margin: 0;
           /* overflow: scroll; */
 
-          *{
+          * {
             margin: 0;
             padding: 0;
           }
 
-          .speed{
+          .speed {
             background-color: rgb(186, 216, 120);
             border-radius: 20px;
             width: 40%;
             height: 100%;
             overflow: scroll;
             scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;
+            -ms-overflow-style: none;
 
-            h4{
-              margin:8px 0;
-
+            h4 {
+              margin: 8px 0;
             }
           }
-          
         }
-        .climate{
+        .climate {
           font-size: 3vw;
         }
-
       }
     }
-    
-    .week{
+
+    .week {
       overflow: scroll;
       scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;
+      -ms-overflow-style: none;
       font-size: large;
       display: flex;
       box-sizing: border-box;
-      width:70%;
+      width: 70%;
       height: 100%;
       /* background-color: aliceblue; */
       flex-wrap: wrap;
       /* gap: 5vh; */
       justify-content: space-around;
       /* align-content: space-between; */
-      padding: 20px;
+      padding: 40px;
 
-      .day{
+      .day {
         margin: 0;
         padding: 0;
         width: 100%;
-        overflow: hidden;
+        /* overflow: ; */
         height: 50%;
-        h4{
+        h4 {
           margin: 0px 15px;
           padding: 0 10px;
           background-color: rgb(221, 212, 224);
@@ -223,9 +231,8 @@ button{
 
           border-start-end-radius: 5px;
           border-start-start-radius: 5px;
-
         }
-        .boxes{
+        .boxes {
           cursor: pointer;
           display: flex;
           border-radius: 20px;
@@ -235,45 +242,139 @@ button{
           background-color: rgb(207, 171, 128);
           overflow: scroll;
           scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;
+          -ms-overflow-style: none;
           gap: 20px;
-          padding:0 20px;
+          padding: 0 20px;
           padding-right: 40px;
 
-          .box{
-            
+          .box {
             text-align: center;
             /* background-color: #61dafb; */
             width: 13vw;
             height: 100%;
             border-radius: 10px;
 
-           *{
-            margin: 0;
-            padding: 0;
-           }
-           p{
-            margin: 10px 20px;
-            font-size: large;
-           }
-
+            * {
+              margin: 0;
+              padding: 0;
+            }
+            p {
+              margin: 10px 20px;
+              font-size: large;
+            }
           }
         }
-        
       }
-      
     }
-    .bar{
+    .bar {
       width: 80%;
       height: 1%;
       background-color: aliceblue;
-      margin: 5% 10% ;
+      margin: 5% 10%;
     }
-    .climate{
+    .climate {
       font-size: 7vh;
       text-transform: capitalize;
     }
-    
+  }
+}
+
+@media (max-width: 768px) {
+  .load{
+    font-size: 3vh;
+    button{
+      font-size: 50%;
+      width: 30%;
+    }
+  }
+  .popover-content{
+    /* margin-right: 5px; */
+    font-size: 3vh;
+    text-align: justify;
+    width: inherit;
+    /* padding-right: 10px; */
+    /* padding: 5px; */
   }
 
+  .main {
+    min-height: 100vh;
+    /* min-height: 100vh; */
+
+    .head {
+      height: 100%;
+      overflow: visible;
+
+      .navbar {
+        position: sticky;
+        top: 0;
+        font-size: 3.5vw;
+        height: 12vh;
+      }
+      .content {
+        overflow: visible;
+        height: 100%;
+        
+        .search {
+          width: 90%;
+          input{
+            font-size: 4vw;
+            width: 60%;
+
+          }
+          button{
+            font-size: 5vw;
+            width: 30%;
+          }
+        }
+
+        .data{
+          overflow: visible;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          .current{
+            overflow:visible;
+            width: 80%;
+            min-height: 60vh;
+
+            .temp,.city{
+              font-size:5vw;
+            }
+            .wind{
+              height: 10vh;
+              font-size: medium;
+
+            }
+            .climate{
+              font-size: x-large;
+              font-weight: 500;
+            }
+          }
+
+          .week{
+            overflow: visible;
+            width: 80%;
+            height: 80vh;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 40px;
+
+            gap: 3vh;
+            /* margin-bottom: 40px; */
+
+            .day{
+              margin: 0;
+              padding: 0;
+              height: 50%;
+            }
+
+           
+          }
+        }
+      }
+    }
+  }
 }

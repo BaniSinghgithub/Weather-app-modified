@@ -1,5 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -73,7 +75,19 @@ function App() {
       .then((data) => {
         // console.log(data);
         if (data.cod === "404") {
-          alert(data.message);
+          // alert(data.message);
+        toast("City not found",{
+          position: "top-right",
+          autoClose: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          style:{
+            backgroundColor: "orange",
+            color:"white"
+          }
+        });
+
           return;
         } else {
           let main = data.weather[0].main;
@@ -181,13 +195,14 @@ function App() {
 
   return (
     <div className="main">
+      <ToastContainer />
   
       <div className="head"
        style={{
         backgroundImage: `url(${process.env.PUBLIC_URL}/${bgaddress})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: "100vh"
+        // height: "100vh"
       }}
        >
         <div className="navbar">
@@ -217,7 +232,7 @@ function App() {
                 type="text"
                 placeholder="Enter City Name"
               />
-              <button type="submit">Search</button>
+              <button disabled={!cityname} type="submit">Search</button>
             </form>
           </div>
   
@@ -319,7 +334,7 @@ function App() {
                   Click to read more
                 </button>
                 {isPopoverVisible && (
-                  <div className=" expla popover-content">
+                  <div className="expla popover-content">
                     The hottest temperature ever recorded on Earth is 134°F
                     (56.7°C)! This scorching record was set in Death Valley,
                     California, on July 10, 1913. Despite its harsh environment,
